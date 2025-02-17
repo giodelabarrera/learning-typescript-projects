@@ -15,5 +15,20 @@ export interface DefaultCactus {
 	state: "default";
 }
 
-// Write your isFruitBearingCactus and pickFruitBearingCacti functions here! ✨
-// You'll need to export it so the tests can run it.
+export function isFruitBearingCactus(data: Cactus): data is FruitBearingCactus {
+	if (
+		!!data &&
+		"fruits" in data &&
+		typeof data.fruits === "number" &&
+		"state" in data &&
+		typeof data.state === "string" &&
+		data.state === "fruit-bearing"
+	) {
+		return true;
+	}
+	return false;
+}
+
+export function pickFruitBearingCacti(cactuses: Cactus[]) {
+	return cactuses.filter(isFruitBearingCactus);
+}
