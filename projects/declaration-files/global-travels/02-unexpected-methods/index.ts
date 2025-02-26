@@ -1,4 +1,22 @@
-// Write your types here! ✨
+declare global {
+	interface String {
+		/**
+		 *
+		 */
+		alternating(): string;
+	}
+
+	interface Array<T> {
+		/**
+		 *
+		 */
+		unsmoosh(): [string, string];
+		/**
+		 *
+		 */
+		smoosh(): string;
+	}
+}
 
 export function logMessage(): string {
 	const encodedMessage =
